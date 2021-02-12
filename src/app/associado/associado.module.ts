@@ -12,6 +12,9 @@ import { AssociadoFormComponent } from './associado-form/associado-form.componen
   imports: [
     CommonModule,
     AssociadoRoutingModule
+  ],
+  exports: [
+    AssociadoFormComponent
   ]
 })
 export class AssociadoModule { }
