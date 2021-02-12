@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'
 
 import { AssociadoRoutingModule } from './associado-routing.module';
 import { AssociadoFormComponent } from './associado-form/associado-form.component';
@@ -11,7 +12,8 @@ import { AssociadoFormComponent } from './associado-form/associado-form.componen
   ],
   imports: [
     CommonModule,
-    AssociadoRoutingModule
+    AssociadoRoutingModule,
+    FormsModule
   ],
   exports: [
     AssociadoFormComponent

@@ -11,7 +11,10 @@ export class AssociadoFormComponent implements OnInit {
 
   associado: Associado;
 
-  constructor() { }
+  constructor() {
+    this.associado = new Associado();
+    this.associado.nome = 'Junior'
+   }
 
   ngOnInit(): void {
   }
