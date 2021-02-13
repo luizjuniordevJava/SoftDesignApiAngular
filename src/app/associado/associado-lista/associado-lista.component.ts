@@ -11,6 +11,9 @@ import { Associado } from '../associado';
 export class AssociadoListaComponent implements OnInit {
 
   associados: Associado[] = [];
+  associadoSelecionado: Associado;
+  mensagemSucesso: string;
+  mensagemErro: string;
 
   constructor( private service: AssociadoService, private router: Router ) { }
 
@@ -22,6 +25,23 @@ export class AssociadoListaComponent implements OnInit {
 
   novoCadastro(){
     this.router.navigate(['/associado-form']);
+  }
+
+  preparaDelecao( associado: Associado){
+    this.associadoSelecionado = associado;
+  }
+
+  deletarAssociado(){
+    this.service
+          .deletar(this.associadoSelecionado)
+          .subscribe( 
+            response => {
+              this.mensagemSucesso = 'Associado deletado com sucesso!'
+              this.ngOnInit();
+            },
+            erro => this.mensagemErro = 'Ocorreu um erro ao deletar o cliente'
+            )
+    
   }
 
 }

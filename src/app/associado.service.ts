@@ -26,4 +26,8 @@ export class AssociadoService {
   getAssociadoById(id: number) : Observable<Associado>{
     return this.http.get<any>(`http://localhost:8080/api/associados/${id}`);
   }
+
+  deletar(associado: Associado) : Observable<any>{
+    return this.http.delete<any>(`http://localhost:8080/api/associados/${associado.id}`);
+  }
 }

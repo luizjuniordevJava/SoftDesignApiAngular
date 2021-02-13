@@ -6,6 +6,16 @@
 </div>
 <div class="container">
     <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success" *ngIf="mensagemSucesso">
+                {{ mensagemSucesso }}
+            </div>
+            <div class="alert alert-danger" *ngIf="mensagemErro">
+                {{ mensagemErro }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-2">
             <button class="btn btn-warning" (click)="novoCadastro()">
                 <i class="fa fa-plus"></i>
@@ -35,10 +45,40 @@
                             <button class="btn btn-primary" routerLink="/associado-form/{{ associado.id }}">
                                 <i class="fa fa-edit"></i>
                             </button>
+
+                            <button class="btn btn-danger" 
+                                data-toggle="modal" 
+                                data-target="#modalDelete"
+                                (click)="preparaDelecao( associado )">
+                                <i class="fa fa-trash"></i>
+                            </button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+
+    <div id="modalDelete" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Exclusão</h4>
+                </div>
+                <div class="modal-body" *ngIf="associadoSelecionado">
+                    Confirma Exclusão do(a) {{ associadoSelecionado.nome }} ?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" data-dismiss="modal" 
+                        (click)="deletarAssociado()">
+                        Deletar
+                    </button>
+                    <button class="btn btn-primary" data-dismiss="modal">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
