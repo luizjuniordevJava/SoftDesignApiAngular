@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
+
 import { Associado } from './associado/associado';
 
 @Injectable({
@@ -6,7 +8,7 @@ import { Associado } from './associado/associado';
 })
 export class AssociadoService {
 
-  constructor() { }
+  constructor( private http: HttpClient) { }
 
   getAssociado() : Associado {
     let associado: Associado = new Associado();
