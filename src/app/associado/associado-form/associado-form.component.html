@@ -5,19 +5,20 @@
     </ol>
 </div>
 <div class="container">
-    
     <form action="">
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="">ID:</label>
-                    <input class="form-control" type="text" name="" id="" disabled="true">
+                    <input class="form-control" type="text" 
+                        [ngModel]="associado.id" name="id" disabled="true">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="">Data de Cadastro:</label>
-                    <input class="form-control" type="text" name="" id="" disabled="true">
+                    <input class="form-control" type="text" 
+                        [ngModel]="associado.dataCadastro" name="dataCadastro" disabled="true">
                 </div>
             </div>
         </div>
@@ -25,19 +26,21 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="">Nome: *</label>
-                    <input class="form-control" type="text" name="" id="" value="{{ associado.nome}}">
+                    <input class="form-control" type="text" 
+                        [(ngModel)]="associado.nome" name="nome">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="">CPF:</label>
-                    <input class="form-control" type="text" name="" id="">
+                    <input class="form-control" type="text" 
+                        [(ngModel)]="associado.cpf" name="cpf">
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md2">
-                <button type="submit" class="btn btn-success">
+                <button type="submit" class="btn btn-success" (click)="clicar()">
                     <i class="fa fa-save"></i>
                     Salvar
                 </button>
