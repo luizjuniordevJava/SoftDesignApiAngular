@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Associado } from '../associado'
+import { Associado } from '../associado';
+import { AssociadoService } from '../../associado.service'
 
 @Component({
   selector: 'app-associado-form',
@@ -11,11 +12,9 @@ export class AssociadoFormComponent implements OnInit {
 
   associado: Associado;
 
-  constructor() {
-    this.associado = new Associado();
-    this.associado.nome='junior';
-  
-   }
+  constructor( private service: AssociadoService) {
+    this.associado = service.getAssociado();
+  }
 
   ngOnInit(): void {
   }
