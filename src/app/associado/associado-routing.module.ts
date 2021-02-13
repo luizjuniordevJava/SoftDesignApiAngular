@@ -5,6 +5,7 @@ import { AssociadoListaComponent } from './associado-lista/associado-lista.compo
 
 const routes: Routes = [
   { path: 'associado-form', component: AssociadoFormComponent},
+  { path: 'associado-form/:id', component: AssociadoFormComponent},
   { path: 'associado-lista', component: AssociadoListaComponent}
 ];
 

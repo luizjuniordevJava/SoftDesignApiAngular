@@ -15,7 +15,15 @@ export class AssociadoService {
     return this.http.post<Associado>('http://localhost:8080/api/associados', associado);
   }
 
+  atualizar( associado: Associado) : Observable<any>{
+    return this.http.put<Associado>(`http://localhost:8080/api/associados/${associado.id}`, associado);
+  }
+
   getAssociado() : Observable<Associado[]>{
     return this.http.get<Associado[]>('http://localhost:8080/api/associados');
+  }
+
+  getAssociadoById(id: number) : Observable<Associado>{
+    return this.http.get<any>(`http://localhost:8080/api/associados/${id}`);
   }
 }

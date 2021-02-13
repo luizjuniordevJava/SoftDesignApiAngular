@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <h1 class="mt-4">Associado</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">Cadastro!</li>
+        <li class="breadcrumb-item active">{{ associado.id ? 'Editar':'Cadastro'}}</li>
     </ol>
 </div>
 <div class="container">
@@ -49,10 +49,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2">
-                <button type="submit" class="btn btn-success">
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-success" *ngIf="!associado.id">
                     <i class="fa fa-save"></i>
                     Salvar
+                </button>
+                <button type="submit" class="btn btn-primary" *ngIf="associado.id">
+                    <i class="fa fa-sync-alt"></i>
+                    Atualizar
                 </button>
             </div>
             <div class="col-md-2">
