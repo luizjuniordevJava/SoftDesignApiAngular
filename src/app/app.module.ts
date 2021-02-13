@@ -9,6 +9,7 @@ import { TemplateModule } from './template/template.module';
 import { HomeComponent } from './home/home.component';
 import { AssociadoModule } from './associado/associado.module';
 import { AssociadoService } from './associado.service';
+import { PautaModule } from './pauta/pauta.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AssociadoService } from './associado.service';
     HttpClientModule,
     AppRoutingModule,
     TemplateModule,
-    AssociadoModule
+    AssociadoModule,
+    PautaModule
   ],
   providers: [
     AssociadoService
