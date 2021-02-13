@@ -11,6 +11,8 @@ import { AssociadoService } from '../../associado.service'
 export class AssociadoFormComponent implements OnInit {
 
   associado: Associado;
+  sucesso: boolean = false;
+  errors: String[];
 
   constructor( private service: AssociadoService) {
     this.associado = new Associado();
@@ -20,18 +22,20 @@ export class AssociadoFormComponent implements OnInit {
 
   }
 
-  clicar(){
-    console.log(this.associado.nome);
-    
-  }
-
   onSubmit(){
     this.service
     .salvar(this.associado)
     .subscribe( response =>{
-      console.log(response);
-      
-    })
+      this.sucesso = true;
+      this.errors = null;
+      this.associado = response;
+    }, errorResponse =>{
+      //console.log(errorResponse.error.errors);
+      this.errors = errorResponse.error.errors;
+      this.sucesso = false;
+    }
+    
+    )
   }
 
 }
