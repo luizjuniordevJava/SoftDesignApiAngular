@@ -11,15 +11,11 @@ export class AssociadoService {
 
   constructor( private http: HttpClient) { }
 
-  getAssociado() : Associado {
-    let associado: Associado = new Associado();
-    associado.nome = 'Luiz'
-
-    return associado;
-
-  }
-
   salvar( associado: Associado) : Observable<Associado>{
     return this.http.post<Associado>('http://localhost:8080/api/associados', associado);
+  }
+
+  getAssociado() : Observable<Associado[]>{
+    return this.http.get<Associado[]>('http://localhost:8080/api/associados');
   }
 }

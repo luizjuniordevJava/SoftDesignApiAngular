@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms'
 
 import { AssociadoRoutingModule } from './associado-routing.module';
 import { AssociadoFormComponent } from './associado-form/associado-form.component';
+import { AssociadoListaComponent } from './associado-lista/associado-lista.component';
 
 
 @NgModule({
   declarations: [
-    AssociadoFormComponent
+    AssociadoFormComponent,
+    AssociadoListaComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { AssociadoFormComponent } from './associado-form/associado-form.componen
     FormsModule
   ],
   exports: [
-    AssociadoFormComponent
+    AssociadoFormComponent,
+    AssociadoListaComponent
   ]
 })
 export class AssociadoModule { }
