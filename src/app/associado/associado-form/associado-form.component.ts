@@ -13,15 +13,25 @@ export class AssociadoFormComponent implements OnInit {
   associado: Associado;
 
   constructor( private service: AssociadoService) {
-    this.associado = service.getAssociado();
+    this.associado = new Associado();
   }
 
   ngOnInit(): void {
+
   }
 
   clicar(){
     console.log(this.associado.nome);
     
+  }
+
+  onSubmit(){
+    this.service
+    .salvar(this.associado)
+    .subscribe( response =>{
+      console.log(response);
+      
+    })
   }
 
 }

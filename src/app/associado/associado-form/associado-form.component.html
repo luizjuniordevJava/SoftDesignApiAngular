@@ -5,7 +5,7 @@
     </ol>
 </div>
 <div class="container">
-    <form action="">
+    <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
