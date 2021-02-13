@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AssociadoService } from '../../associado.service';
 import { Associado } from '../associado';
 
@@ -11,12 +12,16 @@ export class AssociadoListaComponent implements OnInit {
 
   associados: Associado[] = [];
 
-  constructor( private service: AssociadoService ) { }
+  constructor( private service: AssociadoService, private router: Router ) { }
 
   ngOnInit(): void {
     this.service 
           .getAssociado()
           .subscribe( response => this.associados = response);
+  }
+
+  novoCadastro(){
+    this.router.navigate(['/associado-form']);
   }
 
 }

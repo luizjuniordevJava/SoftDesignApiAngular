@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Associado } from '../associado';
 import { AssociadoService } from '../../associado.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-associado-form',
@@ -14,12 +15,16 @@ export class AssociadoFormComponent implements OnInit {
   sucesso: boolean = false;
   errors: String[];
 
-  constructor( private service: AssociadoService) {
+  constructor( private service: AssociadoService, private router: Router) {
     this.associado = new Associado();
   }
 
   ngOnInit(): void {
 
+  }
+
+  voltarParaListagem(){
+    this.router.navigate(['/associado-lista']);
   }
 
   onSubmit(){
