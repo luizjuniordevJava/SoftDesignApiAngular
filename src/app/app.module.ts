@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { AssociadoModule } from './associado/associado.module';
 import { AssociadoService } from './associado.service';
 import { PautaModule } from './pauta/pauta.module';
+import { PautaService } from './pauta.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PautaModule } from './pauta/pauta.module';
     PautaModule
   ],
   providers: [
-    AssociadoService
+    AssociadoService,
+    PautaService
   ],
   bootstrap: [AppComponent]
 })
