@@ -1,1 +1,64 @@
-<p>pauta-form works!</p>
+<div class="container-fluid">
+    <h1 class="mt-4">Pauta</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">{{ pauta.id ? 'Editar':'Cadastro'}}</li>
+    </ol>
+</div>
+<div class="container">
+    <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" *ngIf="sucesso == true">
+                    
+                    Pauta salvo/atualizado com sucesso!
+                </div>
+                <div class="alert alert-danger" *ngFor="let erro of errors">
+                    {{ erro }}
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="pauta.id">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">ID:</label>
+                    <input class="form-control" type="text" 
+                        [ngModel]="pauta.id" name="id" disabled="true">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Data de Cadastro:</label>
+                    <input class="form-control" type="text" 
+                        [ngModel]="pauta.dataCadastro" name="dataCadastro" disabled="true">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Nome: *</label>
+                    <input class="form-control" type="text" 
+                        [(ngModel)]="pauta.descricao" name="descricao">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-success" *ngIf="!pauta.id">
+                    <i class="fa fa-save"></i>
+                    Salvar
+                </button>
+                <button type="submit" class="btn btn-primary" *ngIf="pauta.id">
+                    <i class="fa fa-sync-alt"></i>
+                    Atualizar
+                </button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-danger" (click)="voltarParaListagem()">
+                    <i class="fa fa-arrow-alt-circle-left"></i>
+                    Voltar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

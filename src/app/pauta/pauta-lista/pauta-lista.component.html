@@ -1,1 +1,82 @@
-<p>pauta-lista works!</p>
+<div class="container-fluid">
+    <h1 class="mt-4">Pauta</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Lista!</li>
+    </ol>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success" *ngIf="mensagemSucesso">
+                {{ mensagemSucesso }}
+            </div>
+            <div class="alert alert-danger" *ngIf="mensagemErro">
+                {{ mensagemErro }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <button class="btn btn-warning" (click)="novoCadastro()">
+                <i class="fa fa-plus"></i>
+                Novo
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-condensed table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Descrição</th>
+                        <th>Data Cadastro</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pauta of pautas">
+                        <td>{{ pauta.id }}</td>
+                        <td>{{ pauta.descricao }}</td>
+                        <td>{{ pauta.dataCadastro }}</td>
+                        <td>
+                            <button class="btn btn-primary" routerLink="/pauta-form/{{ pauta.id }}">
+                                <i class="fa fa-edit"></i>
+                            </button>
+
+                            <button class="btn btn-danger" 
+                                data-toggle="modal" 
+                                data-target="#modalDelete"
+                                (click)="preparaDelecao( pauta )">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="modalDelete" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Exclusão</h4>
+                </div>
+                <div class="modal-body" *ngIf="pautaSelecionado">
+                    Confirma Exclusão do(a) {{ pautaSelecionado.descricao }} ?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" data-dismiss="modal" 
+                        (click)="deletarPauta()">
+                        Deletar
+                    </button>
+                    <button class="btn btn-primary" data-dismiss="modal">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

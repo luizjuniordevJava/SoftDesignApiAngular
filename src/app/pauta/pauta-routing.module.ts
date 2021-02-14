@@ -4,9 +4,9 @@ import { PautaFormComponent } from './pauta-form/pauta-form.component';
 import { PautaListaComponent } from './pauta-lista/pauta-lista.component';
 
 const routes: Routes = [
-  { path: 'associado-form', component: PautaFormComponent},
-  { path: 'associado-form/:id', component: PautaFormComponent},
-  { path: 'associado-lista', component: PautaListaComponent}
+  { path: 'pauta-form', component: PautaFormComponent},
+  { path: 'pauta-form/:id', component: PautaFormComponent},
+  { path: 'pauta-lista', component: PautaListaComponent}
 ];
 
 @NgModule({
