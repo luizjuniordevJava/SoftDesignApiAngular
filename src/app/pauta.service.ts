@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 import { Pauta } from './pauta/pauta';
 
 @Injectable({
@@ -8,25 +9,27 @@ import { Pauta } from './pauta/pauta';
 })
 export class PautaService {
 
+  apiURL: string = environment.apiURLBase + '/api/pautas';
+
   constructor(private http: HttpClient) { }
 
   salvar( pauta: Pauta) : Observable<Pauta>{
-    return this.http.post<Pauta>('http://localhost:8080/api/pautas', pauta);
+    return this.http.post<Pauta>(`${this.apiURL}`, pauta);
   }
 
   atualizar( pauta: Pauta) : Observable<any>{
-    return this.http.put<Pauta>(`http://localhost:8080/api/pautas/${pauta.id}`, pauta);
+    return this.http.put<Pauta>(`${this.apiURL}/${pauta.id}`, pauta);
   }
 
   getPauta() : Observable<Pauta[]>{
-    return this.http.get<Pauta[]>('http://localhost:8080/api/pautas');
+    return this.http.get<Pauta[]>(this.apiURL);
   }
 
   getPautaById(id: number) : Observable<Pauta>{
-    return this.http.get<any>(`http://localhost:8080/api/pautas/${id}`);
+    return this.http.get<any>(`${this.apiURL}/${id}`);
   }
 
   deletar(pauta: Pauta) : Observable<any>{
-    return this.http.delete<any>(`http://localhost:8080/api/pautas/${pauta.id}`);
+    return this.http.delete<any>(`${this.apiURL}/${pauta.id}`);
   }
 }
