@@ -29,16 +29,22 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Nome</th>
                         <th>Descrição</th>
                         <th>Data Cadastro</th>
+                        <th>Total de Votos</th>
+                        <th>Resultado</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let pauta of pautas">
                         <td>{{ pauta.id }}</td>
+                        <td>{{ pauta.nome }}</td>
                         <td>{{ pauta.descricao }}</td>
                         <td>{{ pauta.dataCadastro }}</td>
+                        <td>{{ pauta.totalVotos }}</td>
+                        <td>{{ pauta.resultado }}</td>
                         <td>
                             <button class="btn btn-primary" routerLink="/pauta-form/{{ pauta.id }}">
                                 <i class="fa fa-edit"></i>
@@ -64,7 +70,7 @@
                     <h4>Exclusão</h4>
                 </div>
                 <div class="modal-body" *ngIf="pautaSelecionado">
-                    Confirma Exclusão do(a) {{ pautaSelecionado.descricao }} ?
+                    Confirma Exclusão do(a) {{ pautaSelecionado.nome }} ?
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-danger" data-dismiss="modal" 
