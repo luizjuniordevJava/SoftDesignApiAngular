@@ -44,7 +44,7 @@ export class PautaFormComponent implements OnInit {
   }
 
   voltarParaListagem(){
-    this.router.navigate(['/pauta-lista']);
+    this.router.navigate(['/pautas/lista']);
   }
 
   onSubmit(){

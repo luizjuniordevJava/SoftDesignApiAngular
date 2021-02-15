@@ -42,7 +42,7 @@ export class AssociadoFormComponent implements OnInit {
   }
 
   voltarParaListagem(){
-    this.router.navigate(['/associado-lista']);
+    this.router.navigate(['/associados/lista']);
   }
 
   onSubmit(){

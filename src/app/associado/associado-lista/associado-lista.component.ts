@@ -24,7 +24,7 @@ export class AssociadoListaComponent implements OnInit {
   }
 
   novoCadastro(){
-    this.router.navigate(['/associado-form']);
+    this.router.navigate(['/associados/form']);
   }
 
   preparaDelecao( associado: Associado){

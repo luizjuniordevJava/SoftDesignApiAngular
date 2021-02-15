@@ -25,7 +25,7 @@ export class PautaListaComponent implements OnInit {
   }
 
   novoCadastro(){
-    this.router.navigate(['/pauta-form']);
+    this.router.navigate(['/pautas/form']);
   }
 
   preparaDelecao( pauta: Pauta){
