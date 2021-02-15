@@ -11,14 +11,18 @@ import { AssociadoModule } from './associado/associado.module';
 import { AssociadoService } from './associado.service';
 import { PautaModule } from './pauta/pauta.module';
 import { PautaService } from './pauta.service';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule,
     TemplateModule,
