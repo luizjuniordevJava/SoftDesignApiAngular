@@ -4,6 +4,7 @@ import { Associado } from '../associado';
 import { AssociadoService } from '../../associado.service'
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-associado-form',
@@ -16,15 +17,18 @@ export class AssociadoFormComponent implements OnInit {
   sucesso: boolean = false;
   errors: String[];
   id: number;
+  usuarioLogado: string;
 
   constructor( 
     private service: AssociadoService, 
     private router: Router,
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthService) {
     this.associado = new Associado();
   }
 
   ngOnInit(): void {
+    this.usuarioLogado = this.authService.getUsuarioAutenticado();
     let params: Observable<Params> = this.activatedRoute.params;
     params.subscribe(
       urlParams => {
@@ -58,7 +62,7 @@ export class AssociadoFormComponent implements OnInit {
             })
 
     }else{
-
+      this.associado.usuario = this.usuarioLogado;
       this.service
       .salvar(this.associado)
       .subscribe( response =>{

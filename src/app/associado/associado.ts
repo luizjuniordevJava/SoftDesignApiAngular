@@ -3,5 +3,6 @@ export class Associado {
     nome: string;
     cpf: string;
     dataCadastro: string;
+    usuario: string;
     
 }
