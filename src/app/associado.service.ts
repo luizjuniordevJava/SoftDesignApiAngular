@@ -30,6 +30,10 @@ export class AssociadoService {
     return this.http.get<any>(`${this.apiURL}/${id}`);
   }
 
+  getAssociadoPorUsuario(usuario: string) : Observable<Associado>{
+    return this.http.get<any>(`${this.apiURL}/${usuario}`);
+  }
+
   deletar(associado: Associado) : Observable<any>{
     return this.http.delete<any>(`${this.apiURL}/${associado.id}`);
   }

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 import { Associado } from '../associado';
 import { AssociadoService } from '../../associado.service'
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/auth.service';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'app-associado-form',
@@ -23,7 +23,8 @@ export class AssociadoFormComponent implements OnInit {
     private service: AssociadoService, 
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private authService: AuthService) {
+    private authService: AuthService
+  ) {
     this.associado = new Associado();
   }
 
@@ -58,7 +59,7 @@ export class AssociadoFormComponent implements OnInit {
               this.sucesso = true;
               this.errors = null;
             }, errorResponse =>{
-              this.errors = ['Erro ao atualizar o Associado.']
+              this.errors = errorResponse.error.errors;
             })
 
     }else{

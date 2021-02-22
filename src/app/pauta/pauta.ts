@@ -4,5 +4,5 @@ export class Pauta{
     descricao: string;
     dataCadastro: string;
     totalVotos: number;
-    resultado: boolean;
+    resultado: string;
 }

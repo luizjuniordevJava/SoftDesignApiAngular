@@ -50,11 +50,15 @@
                                 <i class="fa fa-edit"></i>
                             </button>
 
-                            <button class="btn btn-danger" 
+                            <button class="btn btn-danger" disabled="true"
                                 data-toggle="modal" 
                                 data-target="#modalDelete"
                                 (click)="preparaDelecao( pauta )">
                                 <i class="fa fa-trash"></i>
+                            </button>
+                            <button class="btn btn-warning" (click)="votacao( pauta.id )">
+                                <i class="fas fa-vote-yea"></i>
+                                Votar
                             </button>
                         </td>
                     </tr>

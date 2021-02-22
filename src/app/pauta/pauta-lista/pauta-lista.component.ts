@@ -44,4 +44,7 @@ export class PautaListaComponent implements OnInit {
             )
     
   }
+  votacao(idPauta: number){
+    this.router.navigate([`/votos/form/${idPauta}`]);
+  }
 }

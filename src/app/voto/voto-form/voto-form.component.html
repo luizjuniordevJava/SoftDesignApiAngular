@@ -1,1 +1,52 @@
-<p>voto-form works!</p>
+<div class="container-fluid">
+    <h1 class="mt-4">Pauta: {{ pauta.nome }}</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Votação</li>
+    </ol>
+</div>
+<div class="container">
+    <form #votoForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="alert alert-success" *ngIf="sucesso == true">
+                    Voto registrado com sucesso!
+                </div>
+                <div class="alert alert-danger" *ngFor="let erro of errors">
+                    {{ erro }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="usuario">Usuário:</label>
+                    <input class="form-control" [(ngModel)]="voto.usuario" type="text" name="usuario" id="" disabled>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <select class="form-control" 
+                    [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="voto.voto">
+                    
+                    <option value="sim">Sim</option>
+                    <option value="nao">Nao</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <button class="btn btn-success" type="submit" (click)="teste()" >
+                    <i class="fa fa-save"></i>
+                    Registrar
+                </button>
+
+                <button class="btn btn-danger" type="button" (click)="voltar()">
+                    <i class="fa fa-arrow-alt-circle-left"></i>
+                    Voltar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

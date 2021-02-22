@@ -5,6 +5,7 @@ import { VotoRoutingModule } from './voto-routing.module';
 import { VotoFormComponent } from './voto-form/voto-form.component';
 import { FormsModule } from '@angular/forms';
 import { VotoListaComponent } from './voto-lista/voto-lista.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -12,8 +13,9 @@ import { VotoListaComponent } from './voto-lista/voto-lista.component';
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
     VotoRoutingModule
   ],
-  exports: [VotoFormComponent]
+  exports: [VotoFormComponent,VotoListaComponent]
 })
 export class VotoModule { }
